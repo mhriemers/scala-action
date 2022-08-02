@@ -1,0 +1,22 @@
+[0m[[0m[0minfo[0m] [0m[0mFast optimizing /Users/martijnriemers/IdeaProjects/scala-action/target/scala-3.1.3/scala-action-test-fastopt[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Compute reachability: 437393 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Assemble LinkedClasses: 39033 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: 527602 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Batch mode: true[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Incremental part: 157466 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizing 5714 methods.[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizer part: 449708 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: 618676 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Compute reachability: 146996 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Assemble LinkedClasses: 7391 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: 165513 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mModule Splitter: Calculate Dependency Info: 3794 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mModule Splitter: Analyze Modules: 1256 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mModule Splitter: Assemble Modules: 9181 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mModule Splitter: 16317 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Generate Classes: 716120 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Write trees: 44859 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Class tree cache stats: reused: 0 -- invalidated: 737[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Method tree cache stats: reused: 0 -- invalidated: 3016[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: 795694 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mBasicBackend: Write result: 612724 us[0m
