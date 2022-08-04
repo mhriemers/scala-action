@@ -1,8 +1,0 @@
-[0m[[0m[0minfo[0m] [0m[0mUpdating NPM dependencies[0m
-[0m[[0m[0minfo[0m] [0m[0mUsing lockfile /Users/martijnriemers/IdeaProjects/scala-action/package-lock.json[0m
-[0m[[0m[0mdebug[0m] [0m[0mCommand: npm install[0m
-[0m[[0m[0minfo[0m] [0m[0madded 310 packages, and audited 311 packages in 2s[0m
-[0m[[0m[0minfo[0m] [0m[0m38 packages are looking for funding[0m
-[0m[[0m[0minfo[0m] [0m[0m  run `npm fund` for details[0m
-[0m[[0m[0minfo[0m] [0m[0mfound 0 vulnerabilities[0m
-[0m[[0m[0mdebug[0m] [0m[0mWrote lockfile to /Users/martijnriemers/IdeaProjects/scala-action/package-lock.json[0m
