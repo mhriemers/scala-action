@@ -22,4 +22,5 @@ jobs:
           check-latest: true
       - run: sbt clean
       - run: sbt test
+      - run: sbt fullOptJS::webpack
       - uses: ./
