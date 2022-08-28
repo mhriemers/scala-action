@@ -1,0 +1,70 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: sbt
+          check-latest: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: sbt clean
+      - run: sbt scalafmtCheckAll
+      - run: sbt test
+      - run: sbt fullOptJS/webpack
+      - uses: actions/upload-artifact@v3
+        with:
+          name: action
+          path: target/scala-*/scalajs-bundler/main/scala-action-opt-bundle.js
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: action
+      - id: get_version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "::set-output name=version::$VERSION"
+      - run: |
+          TAG=${{ steps.get_version.outputs.version }}
+          MAJOR_TAR=$(echo "$TAG" | cut -d '.' -f 1)
+
+          mkdir -p dist
+          mv scala-action-opt-bundle.js dist/index.js
+          git add --force dist
+
+          MESSAGE="Build for $(git rev-parse --short HEAD)"
+          git commit --allow-empty -m "$MESSAGE"
+          git tag -f -a -m "Release $TAG" $TAG
+          git push origin $TAG --force
+
+          git tag -f -a -m "Update $MAJOR_TAR" $MAJOR_TAR
+          git push origin $MAJOR_TAR --force
+      - name: Create the Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ steps.get_version.outputs.version }}
+          tag_name: ${{ steps.get_version.outputs.version }}
+          draft: true
+          prerelease: false

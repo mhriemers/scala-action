@@ -1,4 +1,3 @@
-ThisBuild / version          := "0.0.0"
 ThisBuild / scalaVersion     := "3.1.3"
 ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
