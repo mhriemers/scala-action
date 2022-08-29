@@ -9,5 +9,6 @@ lazy val root = (project in file("."))
     scalaJSUseMainModuleInitializer := true,
     webpack / version := "5.74.0",
     webpackCliVersion := "4.10.0",
-    startWebpackDevServer / version := "4.9.3"
+    startWebpackDevServer / version := "4.9.3",
+    fullOptJS / scalaJSLinkerConfig ~= { _.withSourceMap(false) }
   )
