@@ -32,7 +32,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: action
-          path: target/scala-*/scalajs-bundler/main/scala-action-opt-bundle.js
+          path: target/scala-*/scalajs-bundler/main/*-opt-bundle.js
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
           MINOR_TAG=$(echo "$TAG" | cut -d '.' -f 1,2)
 
           mkdir -p dist
-          mv scala-*/scalajs-bundler/main/scala-action-opt-bundle.js dist/index.js
+          mv scala-*/scalajs-bundler/main/*-opt-bundle.js dist/index.js
           git add --force dist
 
           git commit --allow-empty -m "Build for $(git rev-parse --short HEAD)"
