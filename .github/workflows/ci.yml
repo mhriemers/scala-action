@@ -5,7 +5,7 @@ on:
     branches:
       - main
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   pull_request:
     branches:
       - main
@@ -54,18 +54,21 @@ jobs:
       - run: |
           TAG=${{ steps.get_version.outputs.version }}
           MAJOR_TAR=$(echo "$TAG" | cut -d '.' -f 1)
+          MINOR_TAG=$(echo "$TAG" | cut -d '.' -f 1,2)
 
           mkdir -p dist
           mv scala-*/scalajs-bundler/main/scala-action-opt-bundle.js dist/index.js
           git add --force dist
 
-          MESSAGE="Build for $(git rev-parse --short HEAD)"
-          git commit --allow-empty -m "$MESSAGE"
+          git commit --allow-empty -m "Build for $(git rev-parse --short HEAD)"
           git tag -f -a -m "Release $TAG" $TAG
           git push origin $TAG --force
 
           git tag -f -a -m "Update $MAJOR_TAR" $MAJOR_TAR
           git push origin $MAJOR_TAR --force
+
+          git tag -f -a -m "Update $MINOR_TAG" $MINOR_TAG
+          git push origin $MINOR_TAG --force
       - name: Create the Release
         uses: softprops/action-gh-release@v1
         with:
