@@ -52,7 +52,7 @@ jobs:
           MAJOR_TAR=$(echo "$TAG" | cut -d '.' -f 1)
 
           mkdir -p dist
-          mv scala-action-opt-bundle.js dist/index.js
+          mv scala-*/scalajs-bundler/main/scala-action-opt-bundle.js dist/index.js
           git add --force dist
 
           MESSAGE="Build for $(git rev-parse --short HEAD)"
