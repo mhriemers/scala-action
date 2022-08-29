@@ -4,4 +4,4 @@ author: 'Martijn Riemers'
 
 runs:
   using: 'node16'
-  main: 'target/scala-3.1.3/scalajs-bundler/main/scala-action-opt-bundle.js'
+  main: 'dist/index.js'
